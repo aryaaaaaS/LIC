@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arya Life Services - Your Trusted LIC & Insurance Partner</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+
+        .nav-menu .active {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .mobile-menu {
+            display: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .agent-info {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            text-align: center;
+        }
+
+        .agent-names {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .lic-branch {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 150px 0 100px 0;
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.1"><polygon points="0,0 1000,0 1000,100 0,80"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .about-text h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        /* Specialities Section */
+        .specialities {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .specialities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .speciality-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .speciality-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .speciality-item i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .speciality-description {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Payment Section */
+        .payment {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            color: white;
+        }
+
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .payment-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .payment-card:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .payment-card i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .payment-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .payment-number {
+            font-size: 1.2rem;
+            font-weight: bold;
+            background: rgba(255,255,255,0.2);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* Feedback Section */
+        .feedbacks {
+            padding: 100px 0;
+            background: #f0f2f5;
+        }
+
+        .feedback-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feedback-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e1e1e1;
+        }
+
+        .feedback-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+        }
+
+        .feedback-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .feedback-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .feedback-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .feedback-info h4 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 1.1rem;
+        }
+
+        .feedback-rating {
+            display: flex;
+            gap: 0.2rem;
+            margin-top: 0.2rem;
+        }
+
+        .feedback-rating i {
+            color: #ffd700;
+            font-size: 0.9rem;
+        }
+
+        .feedback-text {
+            color: #2c3e50;
+            line-height: 1.6;
+            font-style: italic;
+            margin-top: 1rem;
+        }
+
+        .feedback-date {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+            text-align: right;
+        }
+
+        .contact {
+            padding: 100px 0;
+            background: #2c3e50;
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+            align-items: center;
+        }
+
+        .contact-info {
+            space-y: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateX(10px);
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e1e1e1;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            color: black;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #666;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 0 1rem 0;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid,
+            .specialities-grid,
+            .feedback-grid,
+            .payment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .agent-info {
+                margin-top: 2rem;
+            }
+
+            .agent-names {
+                font-size: 1rem;
+            }
+
+            .lic-branch {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Floating Elements */
+        .floating {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #25d366, #128c7e);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            animation: float 3s ease-in-out infinite;
+            z-index: 1000;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Achievements Section */
+        .achievements {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+        }
+
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .achievement-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .achievement-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .achievement-content {
+            padding: 1.5rem;
+        }
+
+        .achievement-content h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-content p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .achievement-date {
+            color: #999;
+            font-size: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        /* Image Upload Section */
+        .image-upload {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .image-upload h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .upload-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .upload-form input[type="file"] {
+            background: rgba(255,255,255,0.2);
+            padding: 1rem;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .upload-form input[type="text"] {
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+        }
+
+        .upload-form input[type="text"]::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .upload-btn {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            border: none;
+            padding: 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .upload-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Service Images */
+        .service-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 20px 20px 0 0;
+            margin-bottom: 1rem;
+        }
+
+        /* Dynamic Feedback Form */
+        .feedback-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .feedback-form h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .feedback-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.2);
+            color:black;
+            margin-bottom: 1rem;
+        }
+
+        .feedback-form textarea::placeholder {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .feedback-form button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .feedback-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Enhanced Feedback Form Styles */
+        .feedback-form-container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-top: 3rem;
+        }
+
+        .feedback-form-container h3 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e1e1e1;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            color: #2c3e50;
+            background: white;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #999;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: #4facfe;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(79, 172, 254, 0.1);
+        }
+
+        .rating-input {
+            display: flex;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            color: #ffd700;
+            cursor: pointer;
+        }
+
+        .rating-input i {
+            transition: all 0.3s ease;
+        }
+
+        .rating-input i:hover,
+        .rating-input i.active {
+            transform: scale(1.2);
+        }
+
+        .submit-feedback-btn {
+            background: linear-gradient(45deg, #4facfe, #00f2fe);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+        }
+
+        .submit-feedback-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(79, 172, 254, 0.2);
+        }
+
+        .submit-feedback-btn i {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/LIC_Logo.svg/1200px-LIC_Logo.svg.png" alt="LIC Logo">
+                ARYA LIFE SERVICES
+            </a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#feedbacks">Feedbacks</a></li>
+                    <li><a href="#payment">Payment</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Your Trusted Insurance Partner</h1>
+            <p>Secure your future with LIC of India and Star Health Insurance. Expert guidance for life insurance, health coverage, and financial planning.</p>
+            <div class="agent-info">
+                <div class="agent-names">Agents: Kiran Shendge & Vidya Shendge</div>
+                <div class="lic-branch">LIC BRANCH 928, Javahar Road, Ghatkopar East Mumbai - 400077</div>
+            </div>
+            <a href="#contact" class="cta-button">Get Free Consultation</a>
+        </div>
+    </section>
+
+    <!-- Specialities Section -->
+    <section id="specialities" class="specialities">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Specialities</h2>
+            <div class="specialities-grid">
+                <div class="speciality-item fade-in">
+                    <i class="fas fa-smile-beam"></i>
+                    <h3>Complete Client Satisfaction</h3>
+                    <p>We prioritize your satisfaction above all else, ensuring every interaction exceeds expectations.</p>
+                </div>
+                <div class="speciality-item fade-in">
+                    <i class="fas fa-handshake"></i>
+                    <h3>Ethical Business Policies</h3>
+                    <p>Transparent and ethical practices form the foundation of our business operations.</p>
+                </div>
+                <div class="speciality-item fade-in">
+                    <i class="fas fa-tags"></i>
+                    <h3>Affordable Pricing</h3>
+                    <p>Competitive and reasonable pricing that fits your budget without compromising quality.</p>
+                </div>
+                <div class="speciality-item fade-in">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Reliable Services</h3>
+                    <p>Consistent and dependable services you can count on for your insurance needs.</p>
+                </div>
+                <div class="speciality-item fade-in">
+                    <i class="fas fa-headset"></i>
+                    <h3>Live In Touch</h3>
+                    <p>Always available to address your concerns and provide timely assistance.</p>
+                </div>
+                <div class="speciality-item fade-in">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Transparent Dealings</h3>
+                    <p>Clear communication and honest transactions in every aspect of our service.</p>
+                </div>
+                <div class="speciality-item fade-in">
+                    <i class="fas fa-wallet"></i>
+                    <h3>Easy Payment Mode</h3>
+                    <p>Multiple convenient payment options for hassle-free transactions.</p>
+                </div>
+                <div class="speciality-item fade-in">
+                    <i class="fas fa-comments"></i>
+                    <h3>We Listen & Understand</h3>
+                    <p>Personalized solutions based on understanding your unique requirements.</p>
+                </div>
+                <div class="speciality-item fade-in">
+                    <i class="fas fa-star"></i>
+                    <h3>Happy Clients</h3>
+                    <p>Building long-term relationships through exceptional service and support.</p>
+                </div>
+            </div>
+            <div class="speciality-description fade-in">
+                <p>ARYA LIFE SERVICES is your trusted partner for LIC of India and Star Health Insurance, ensuring financial security and comprehensive health coverage for you and your family. With expertise in life insurance and health insurance solutions, we help clients make informed decisions to safeguard their future.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Services</h2>
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="LIC Insurance" class="service-image">
+                    <i class="fas fa-user-shield service-icon"></i>
+                    <h3>LIC of India Insurance</h3>
+                    <p>Secure your life with trusted LIC plans. Term insurance, endowment policies, and pension schemes tailored to your needs.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Health Insurance" class="service-image">
+                    <i class="fas fa-heartbeat service-icon"></i>
+                    <h3>Star Health Insurance</h3>
+                    <p>Comprehensive health coverage for individuals and families. Medical insurance with extensive hospital network coverage.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Financial Planning" class="service-image">
+                    <i class="fas fa-chart-line service-icon"></i>
+                    <h3>Financial Planning</h3>
+                    <p>Investment guidance and financial planning services to help you achieve your long-term financial goals.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Policy Assistance" class="service-image">
+                    <i class="fas fa-hands-helping service-icon"></i>
+                    <h3>Policy & Claims Assistance</h3>
+                    <p>Complete support for policy renewals, claim processing, and documentation. We're here to help every step of the way.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Personalized Solutions" class="service-image">
+                    <i class="fas fa-user-cog service-icon"></i>
+                    <h3>Personalized Solutions</h3>
+                    <p>Custom insurance solutions tailored to your specific needs, family situation, and financial goals.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1581092921461-39b9d08a9b21?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="Customer Support" class="service-image">
+                    <i class="fas fa-phone-alt service-icon"></i>
+                    <h3>24/7 Customer Support</h3>
+                    <p>Round-the-clock customer support and consultation services for all your insurance-related queries.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Achievements</h2>
+            <div class="achievements-grid" id="achievementsContainer">
+                <!-- Achievement cards will be dynamically added here -->
+            </div>
+            
+            <!-- Image Upload Section (Only visible to admin) -->
+            <div class="image-upload" id="imageUploadSection" style="display: none;">
+                <h3>Add New Achievement</h3>
+                <form class="upload-form" id="achievementUploadForm">
+                    <input type="file" accept="image/*" required>
+                    <input type="text" placeholder="Achievement Title" required>
+                    <input type="text" placeholder="Achievement Description" required>
+                    <button type="submit" class="upload-btn">Upload Achievement</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feedbacks Section -->
+    <section id="feedbacks" class="feedbacks">
+        <div class="container">
+            <h2 class="section-title fade-in">Client Feedbacks</h2>
+            <div class="feedback-grid" id="feedbackContainer">
+                <!-- Feedback cards will be dynamically added here -->
+            </div>
+            
+            <!-- Enhanced Feedback Form -->
+            <div class="feedback-form-container fade-in">
+                <h3>Share Your Experience</h3>
+                <form id="feedbackForm" class="enhanced-feedback-form">
+                    <div class="form-group">
+                        <label for="feedbackName">Your Name</label>
+                        <input type="text" id="feedbackName" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="feedbackText">Your Feedback</label>
+                        <textarea id="feedbackText" rows="4" placeholder="Share your experience with us..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="feedbackRating">Rating</label>
+                        <div class="rating-input">
+                            <i class="far fa-star" data-rating="1"></i>
+                            <i class="far fa-star" data-rating="2"></i>
+                            <i class="far fa-star" data-rating="3"></i>
+                            <i class="far fa-star" data-rating="4"></i>
+                            <i class="far fa-star" data-rating="5"></i>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-feedback-btn">
+                        <i class="fas fa-paper-plane"></i>
+                        Submit Feedback
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Section -->
+    <section id="payment" class="payment">
+        <div class="container">
+            <h2 class="section-title fade-in">Easy Payment Options</h2>
+            <div class="payment-grid">
+                <div class="payment-card fade-in">
+                    <i class="fab fa-paypal"></i>
+                    <h3>Paytm</h3>
+                    <p>Quick and secure payments through Paytm</p>
+                    <div class="payment-number">+91-98691-49353</div>
+                </div>
+                
+                <div class="payment-card fade-in">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>PhonePe</h3>
+                    <p>Easy payments with PhonePe UPI</p>
+                    <div class="payment-number">+91-98691-49353</div>
+                </div>
+                
+                <div class="payment-card fade-in">
+                    <i class="fab fa-google-pay"></i>
+                    <h3>Google Pay</h3>
+                    <p>Fast payments using Google Pay</p>
+                    <div class="payment-number">+91-98691-49353</div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem; padding: 2rem; background: rgba(255,255,255,0.1); border-radius: 15px;">
+                <h3 style="margin-bottom: 1rem;">💡 Payment Instructions</h3>
+                <p style="font-size: 1.1rem; line-height: 1.6;">
+                    For premium payments and policy transactions, you can use any of the above UPI payment methods.<br>
+                    Please send payment confirmation screenshot to our WhatsApp number for quick processing.<br>
+                    <strong>All payments are secure and processed instantly!</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Branch Office</h4>
+                            <p>LIC BRANCH 928, Javahar Road, Ghatkopar East Mumbai - 400077</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-building"></i>
+                        <div>
+                            <h4>Personal Office</h4>
+                            <p>UG 68, Suchita Business Park, Ghatkopar East Mumbai - 400077</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+91 98691 49353</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@aryalifeservices.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Mon - Sat: 9:00 AM - 7:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form fade-in">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Your Phone" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>&copy; 2025 ARYA LIFE SERVICES. All rights reserved. Your trusted partner for LIC & Health Insurance.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/919869149353" class="floating" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        console.log('Script loaded!');
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Animate button
+            const btn = this.querySelector('.submit-btn');
+            const originalText = btn.textContent;
+            btn.textContent = 'Sending...';
+            btn.style.background = '#27ae60';
+            
+            setTimeout(() => {
+                btn.textContent = 'Message Sent!';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = 'linear-gradient(45deg, #ff6b6b, #ee5a52)';
+                    this.reset();
+                }, 2000);
+            }, 1500);
+        });
+
+        // Header background change on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(30, 60, 114, 0.95)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)';
+            }
+        });
+
+        // Counter animation
+        const animateCounters = () => {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace(/\D/g, ''));
+                const increment = target / 100;
+                let current = 0;
+                
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        if (counter.textContent.includes('+')) {
+                            counter.textContent = Math.floor(current) + '+';
+                        } else if (counter.textContent.includes('%')) {
+                            counter.textContent = Math.floor(current) + '%';
+                        } else if (counter.textContent.includes('/')) {
+                            counter.textContent = Math.floor(current) + '/7';
+                        } else {
+                            counter.textContent = Math.floor(current);
+                        }
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = counter.textContent; // Reset to original
+                    }
+                };
+                updateCounter();
+            });
+        };
+
+        // Trigger counter animation when stats section is visible
+        const statSection = document.querySelector('.stats');
+        if (statSection) {
+            const statObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounters();
+                        statObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            statObserver.observe(statSection);
+        }
+
+        // Admin Authentication
+        const isAdmin = true; // This should be set based on actual authentication
+        const imageUploadSection = document.getElementById('imageUploadSection');
+        
+        if (isAdmin) {
+            imageUploadSection.style.display = 'block';
+        }
+
+        // Achievements Management
+        const achievements = [
+            {
+                image: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+                title: 'Top Performer Award 2024',
+                description: 'Recognized as the top performing LIC agent in Mumbai region',
+                date: 'January 2024'
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+                title: 'Customer Excellence Award',
+                description: 'Awarded for outstanding customer service and satisfaction',
+                date: 'March 2024'
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+                title: 'Best Insurance Advisor 2023',
+                description: 'Recognized for exceptional insurance advisory services',
+                date: 'December 2023'
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+                title: 'Star Health Insurance Excellence',
+                description: 'Awarded for outstanding performance in health insurance',
+                date: 'October 2023'
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+                title: 'LIC Million Dollar Club',
+                description: 'Achieved membership in LIC Million Dollar Club',
+                date: 'August 2023'
+            },
+            {
+                image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60',
+                title: 'Best Financial Planner Award',
+                description: 'Recognized for excellence in financial planning',
+                date: 'June 2023'
+            }
+        ];
+
+        function displayAchievements() {
+            const container = document.getElementById('achievementsContainer');
+            container.innerHTML = achievements.map(achievement => `
+                <div class="achievement-card fade-in">
+                    <img src="${achievement.image}" alt="${achievement.title}" class="achievement-image">
+                    <div class="achievement-content">
+                        <h3>${achievement.title}</h3>
+                        <p>${achievement.description}</p>
+                        <div class="achievement-date">${achievement.date}</div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Sample feedbacks array
+const feedbacks = [
+    {
+        name: "Rajesh Kumar",
+        rating: 5,
+        text: "Excellent service! Kiran and Vidya helped me choose the perfect LIC policy for my family. Very professional and trustworthy.",
+        date: "March 2024"
+    },
+    {
+        name: "Priya Sharma",
+        rating: 5,
+        text: "Outstanding support for my Star Health Insurance claim. They made the entire process smooth and hassle-free.",
+        date: "February 2024"
+    },
+    {
+        name: "Amit Patel",
+        rating: 4,
+        text: "Great financial planning advice. They understood my needs and suggested the best insurance plans within my budget.",
+        date: "January 2024"
+    },
+    {
+        name: "Sunita Desai",
+        rating: 5,
+        text: "Very responsive and helpful. Got my policy renewed quickly without any issues. Highly recommend their services!",
+        date: "December 2023"
+    },
+    {
+        name: "Vikram Singh",
+        rating: 4,
+        text: "Professional service and transparent dealings. They explained all policy details clearly before purchase.",
+        date: "November 2023"
+    },
+    {
+        name: "Meera Joshi",
+        rating: 5,
+        text: "Fantastic experience! Quick claim settlement and excellent customer support throughout the process.",
+        date: "October 2023"
+    }
+];
+
+// Function to render feedbacks
+function displayFeedbacks() {
+    const container = document.getElementById('feedbackContainer');
+    container.innerHTML = feedbacks.map(feedback => `
+        <div class="feedback-card fade-in">
+            <div class="feedback-header">
+                <div class="feedback-avatar">${feedback.name.charAt(0)}</div>
+                <div class="feedback-info">
+                    <h4>${feedback.name}</h4>
+                    <div class="feedback-rating">
+                        ${Array(feedback.rating).fill('<i class="fas fa-star"></i>').join('')}
+                        ${Array(5 - feedback.rating).fill('<i class="far fa-star"></i>').join('')}
+                    </div>
+                </div>
+            </div>
+            <div class="feedback-text">${feedback.text}</div>
+            <div class="feedback-date">${feedback.date}</div>
+        </div>
+    `).join('');
+}
+
+// Star rating functionality
+let selectedRating = 0;
+
+function initializeFeedbackForm() {
+    const ratingStars = document.querySelectorAll('.rating-input i');
+    
+    ratingStars.forEach(star => {
+        star.addEventListener('click', function() {
+            const rating = parseInt(this.getAttribute('data-rating'));
+            selectedRating = rating;
+            
+            // Update star display
+            ratingStars.forEach((s, index) => {
+                if (index < rating) {
+                    s.classList.remove('far');
+                    s.classList.add('fas', 'active');
+                } else {
+                    s.classList.remove('fas', 'active');
+                    s.classList.add('far');
+                }
+            });
+        });
+        
+        // Hover effect
+        star.addEventListener('mouseenter', function() {
+            const rating = parseInt(this.getAttribute('data-rating'));
+            ratingStars.forEach((s, index) => {
+                if (index < rating) {
+                    s.style.color = '#ffd700';
+                    s.style.transform = 'scale(1.1)';
+                } else {
+                    s.style.color = '#ddd';
+                    s.style.transform = 'scale(1)';
+                }
+            });
+        });
+        
+        star.addEventListener('mouseleave', function() {
+            ratingStars.forEach((s, index) => {
+                if (index < selectedRating) {
+                    s.style.color = '#ffd700';
+                    s.style.transform = 'scale(1.2)';
+                } else {
+                    s.style.color = '#ddd';
+                    s.style.transform = 'scale(1)';
+                }
+            });
+        });
+    });
+
+    // Feedback form submission
+    const feedbackForm = document.getElementById('feedbackForm');
+    feedbackForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('feedbackName').value.trim();
+        const text = document.getElementById('feedbackText').value.trim();
+        
+        if (!name || !text) {
+            alert('Please fill in all fields');
+            return;
+        }
+        
+        if (!selectedRating) {
+            alert('Please select a rating');
+            return;
+        }
+        
+        // Add new feedback
+        const newFeedback = {
+            name: name,
+            rating: selectedRating,
+            text: text,
+            date: new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+        };
+        
+        feedbacks.unshift(newFeedback);
+        displayFeedbacks();
+        
+        // Reset form
+        this.reset();
+        selectedRating = 0;
+        ratingStars.forEach(star => {
+            star.classList.remove('fas', 'active');
+            star.classList.add('far');
+            star.style.color = '#ddd';
+            star.style.transform = 'scale(1)';
+        });
+        
+        // Show success message
+        const btn = this.querySelector('.submit-feedback-btn');
+        const originalContent = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-check"></i> Thank You!';
+        btn.style.background = '#27ae60';
+        
+        setTimeout(() => {
+            btn.innerHTML = originalContent;
+            btn.style.background = 'linear-gradient(45deg, #4facfe, #00f2fe)';
+        }, 2000);
+    });
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    displayFeedbacks();
+    initializeFeedbackForm();
+});
+</script>
+</body>
+</html>
